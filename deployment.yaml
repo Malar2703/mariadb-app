@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kkind: Deployment
 metadata:
   name: mariadb
   labels:
@@ -23,5 +23,8 @@ spec:
             - containerPort: 3306
               name: db-port
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: my-password
+            - name: MARIADB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: MYSQL_ROOT_PASSWORD
