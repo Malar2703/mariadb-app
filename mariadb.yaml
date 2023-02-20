@@ -19,6 +19,14 @@ spec:
       containers:
         - name: mariadb
           image: mariadb
+          command:
+          - chown
+          - -R
+          - 999:999
+          - /var/lib/mysql
+          volumeMounts:
+          - name: data
+            mountPath: /var/lib/mysql
           ports:
             - containerPort: 3306
               name: db-port
