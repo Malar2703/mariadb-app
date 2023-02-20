@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kkind: Deployment
 metadata:
   name: mariadb
+  namespace: mariadb
   labels:
     app: mariadb
     type: database
